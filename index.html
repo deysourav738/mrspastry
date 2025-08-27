@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mrs Pastry - Your Cake Shop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: white;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      width: 120px;
+    }
+    nav select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #f9f6ff 0%, #fff 100%);
+      overflow: hidden;
+    }
+    .hero::before, .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(123,44,191,0.1);
+      z-index: 0;
+    }
+    .hero::before {
+      width: 300px; height: 300px;
+      top: -100px; left: -100px;
+    }
+    .hero::after {
+      width: 200px; height: 200px;
+      bottom: -80px; right: -80px;
+    }
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #7B2CBF;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .cake-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .cake-item {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      background: #fff;
+    }
+    .cake-item:hover {
+      transform: translateY(-5px);
+    }
+    .cake-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .cake-item h3 {
+      margin: 15px 0;
+      color: #7B2CBF;
+    }
+    .cake-item button {
+      background-color: #7B2CBF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cake-item button:hover {
+      background-color: #5A189A;
+    }
+    footer {
+      background-color: #7B2CBF;
+      color: white;
+      padding: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+    .footer-left p {
+      margin: 6px 0;
+    }
+    .footer-social {
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      color: #7B2CBF;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-social a:hover {
+      background: #5A189A;
+      color: white;
+      transform: scale(1.1);
+    }
+    .footer-map {
+      flex: 1;
+      min-width: 300px;
+      text-align: right;
+    }
+    .footer-map iframe {
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      height: 200px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Mrs Pastry Logo">
+    <nav>
+      <select onchange="location = this.value;">
+        <option selected disabled>Cakes</option>
+        <option value="#redvelvet">Red Velvet</option>
+        <option value="#panda">Panda Cake</option>
+        <option value="#redwhite">Red & White Cream</option>
+        <option value="#rose">Rose Decor</option>
+      </select>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Custom Cakes for Every Occasion</h2>
+    <p>At <strong>Mrs Pastry</strong>, we craft cakes that match your dreams. Whether it’s a birthday, wedding, anniversary, or any special moment, we design and deliver your cake right to your doorstep with love and care.</p>
+  </section>
+
+  <section class="cake-list">
+    <div class="cake-item" id="redvelvet">
+      <img src="images/520404219_122119862144905786_3621128703606906077_n.jpg" alt="Red Velvet Cake">
+      <h3>Red Velvet Cake</h3>
+      <button onclick="order('Red Velvet Cake')">Order Now</button>
+    </div>
+    <div class="cake-item" id="panda">
+      <img src="images/528038371_122123246060905786_3659808085032809289_n.jpg" alt="Panda Cake">
+      <h3>Panda Cake</h3>
+      <button onclick="order('Panda Cake')">Order Now</button>
+    </div>
+    <div class="cake-item" id="redwhite">
+      <img src="images/536391734_122126433560905786_4893268410652633676_n.jpg" alt="Red & White Cream Cake">
+      <h3>Red & White Cream Cake</h3>
+      <button onclick="order('Red & White Cream Cake')">Order Now</button>
+    </div>
+    <div class="cake-item" id="rose">
+      <img src="images/538307302_122127302012905786_8233241873909613587_n.jpg" alt="Rose Decor Cake">
+      <h3>Rose Decor Cake</h3>
+      <button onclick="order('Rose Decor Cake')">Order Now</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      <p><strong>Phone/WhatsApp:</strong> <a href="https://wa.me/917384703330" style="color:#fff;text-decoration:none;">7384703330</a></p>
+      <p><strong>Address:</strong> Jogardanga, Paschim Medinipur, West Bengal, 721121</p>
+      <p>&copy; 2025 Mrs Pastry. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61577173599830" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://share.google/28Ar9wdjRaqZ4AbOA" target="_blank"><i class="fab fa-google"></i></a>
+        <a href="https://wa.me/917384703330" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-map">
+      <iframe src="https://www.google.com/maps?q=Jogardanga, Paschim Medinipur, West Bengal, 721121&output=embed"></iframe>
+    </div>
+  </footer>
+
+  <script>
+    function order(cakeName) {
+      const phone = '917384703330';
+      const message = `Hello, I would like to order a ${cakeName} from Mrs Pastry.`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
